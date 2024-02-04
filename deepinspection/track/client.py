@@ -41,21 +41,23 @@ class Exports(BaseModel):
 
 
 class DeepInspectionTrackClient(BaseModel):
-    customer_identifier: str
+    customer_id: str
     client_id: str
     client_secret: str
 
     def base_url(self):
-        return f"https://{self.customer_identifier}.api.track.deepinspection.io/external/v0-alpha"
+        return (
+            f"https://{self.customer_id}.api.track.deepinspection.io/external/v0-alpha"
+        )
 
     def auth_headers(self):
         return {
             "Authorization": f"Bearer {self.access_token()}",
-            "X-Customer-ID": self.customer_identifier,
+            "X-Customer-ID": self.customer_id,
         }
 
     def openid_connect_url(self):
-        return f"https://auth.nextml.com/auth/realms/deepinspection-track-{self.customer_identifier}/.well-known/openid-configuration"
+        return f"https://auth.nextml.com/auth/realms/deepinspection-track-{self.customer_id}/.well-known/openid-configuration"
 
     def access_token(self) -> str:
         response = requests.get(self.openid_connect_url())

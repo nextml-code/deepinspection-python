@@ -4,9 +4,9 @@ import deepinspection
 
 
 class Config(BaseSettings, env_file=".env.development.secrets"):
-    deepinspection_customer: str
-    deepinspection_client_id: str
-    deepinspection_client_secret: str
+    customer_id: str
+    client_id: str
+    client_secret: str
 
 
 config = Config()
@@ -14,7 +14,7 @@ config = Config()
 
 def track():
     return deepinspection.track.client(
-        customer_identifier=config.deepinspection_customer,
-        client_id=config.deepinspection_client_id,
-        client_secret=config.deepinspection_client_secret,
+        customer_id=config.customer_id,
+        client_id=config.client_id,
+        client_secret=config.client_secret,
     )

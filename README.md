@@ -9,9 +9,9 @@ import deepinspection
 
 
 client = deepinspection.track.client(
-    deepinspection_customer="customer-identifier",
-    deepinspection_client_id="XYZ",
-    deepinspection_client_secret="XYZ",
+    customer_id="customer-id",
+    client_id="XYZ",
+    client_secret="XYZ",
 )
 
 # list exports
@@ -22,7 +22,7 @@ for line in client.exports.fastenings.get_data(exports[0]["id"]):
     pass
 ```
 
-_The customer identifier should match with the website url `https://customer-identifier.track.deepinspection.io/`._
+_The customer id should match with the website url `https://customer-id.track.deepinspection.io/`._
 
 exports
 
