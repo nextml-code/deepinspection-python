@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "deepinspection-python"
+name = "deepinspection"
 version = "0.1.0"
 description = ""
 authors = ["NextML"]
