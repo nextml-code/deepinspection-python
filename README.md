@@ -2,6 +2,20 @@
 
 Python client library for deepinspection. Designed to simplify and exemplify interaction with the External API.
 
+## Install
+
+Use your preferred package manager:
+
+```bash
+poetry add deepinspection
+```
+
+or
+
+```bash
+pip install deepinspection
+```
+
 ## Usage
 
 ```python
@@ -18,7 +32,9 @@ client = deepinspection.track.client(
 exports = client.exports.fastenings.list()
 
 # get export data
-for line in client.exports.fastenings.get_data(exports[0]["id"]):
+export = exports[0]
+
+for fastening in client.exports.fastenings.get_data(export["id"]):
     pass
 ```
 
@@ -46,18 +62,4 @@ export_data
 {"export_datetime": "2024-02-04T21:21:12.866787", "measurement": "20231001_124327_2011T"}
 {"id": "56fb582a-0280-43fa-81f3-2a444e7e4273", "position_geographical": {"track_section": "111",
 ...
-```
-
-## Installation
-
-Use your preferred package manager:
-
-```bash
-poetry add deepinspection
-```
-
-or
-
-```bash
-pip install deepinspection
 ```

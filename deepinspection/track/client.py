@@ -24,7 +24,14 @@ class Fastenings(BaseModel):
 
     def get_data(self, export_id) -> Generator[dict, None, None]:
         url = f"{self.client.base_url()}/exports/fastenings/{export_id}/data"
-        response = requests.get(url, headers=self.client.auth_headers(), stream=True)
+        response = requests.get(
+            url,
+            headers={
+                **self.client.auth_headers(),
+                "Accept": "application/x-ndjson",
+            },
+            stream=True,
+        )
         response.raise_for_status()
 
         for line in response.iter_lines():
