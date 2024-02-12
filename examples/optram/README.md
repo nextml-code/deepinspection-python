@@ -28,7 +28,7 @@ exports = client.exports.fastenings.list()
 export = exports[0]
 
 for fastening in client.exports.fastenings.get_data(export["id"]):
-    optram_fastening = deepinspection_optram.convert(line, export)
+    optram_fastening = deepinspection_optram.convert(fastening, export)
 ```
 
 export_data

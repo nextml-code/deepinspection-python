@@ -2,6 +2,8 @@
 
 Python client library for deepinspection. Designed to simplify and exemplify interaction with the External API.
 
+See the [Optram example](examples/optram) for a complete example including converting to a custom format for internal use.
+
 ## Install
 
 Use your preferred package manager:
