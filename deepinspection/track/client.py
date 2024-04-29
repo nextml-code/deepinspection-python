@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from typing import Generator, List
+from typing import Generator, List, Optional
 
 import requests
 from pydantic import BaseModel
@@ -49,13 +49,16 @@ class Exports(BaseModel):
 
 class DeepInspectionTrackClient(BaseModel):
     customer_id: str
+    subdomain: Optional[str] = None
     client_id: str
     client_secret: str
 
     def base_url(self):
-        return (
-            f"https://{self.customer_id}.api.track.deepinspection.io/external/v0-alpha"
-        )
+        if self.subdomain is None:
+            subdomain = self.customer_id
+        else:
+            subdomain = self.subdomain
+        return f"https://{subdomain}.api.track.deepinspection.io/external/v0-alpha"
 
     def auth_headers(self):
         return {

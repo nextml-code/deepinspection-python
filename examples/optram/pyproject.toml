@@ -15,7 +15,7 @@ sweref99 = "^0.2"
 numpy = "^1.26.4"
 pandas = "^2.2.0"
 tqdm = "^4.66.2"
-deepinspection = "^0.1.0"
+deepinspection = "^0.1.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"

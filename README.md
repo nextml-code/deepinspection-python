@@ -26,6 +26,7 @@ import deepinspection
 
 client = deepinspection.track.client(
     customer_id="customer-id",
+    # subdomain="subdomain",  # optional, defaults to customer_id
     client_id="XYZ",
     client_secret="XYZ",
 )
